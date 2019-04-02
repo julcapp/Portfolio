@@ -28,6 +28,7 @@
 
 @chocolate: #1a1a1a;
 @vanilla: #F7F7F7;
+@blue: #00C4E6;
 @transition-duration: 0.4s;
 
 * {
@@ -62,6 +63,10 @@ a {
 
 .relative {
   position: relative;
+}
+
+.absolute {
+  position: absolute;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -375,65 +380,91 @@ ol {
     cursor: pointer;
   }
   .projects {
-
+    margin-top: 115px;
     &-item {
-      height: 277px;
-      width: 100%;
-
-      li {
-        list-style-type: none;
-        &:before {
-          content: counter(item) ')';
-          counter-increment: item;
-        }
-      }
-
-
+      padding: 120px 0 120px 0;
+      cursor: pointer;
       &__title {
         &_line {
           width: 210px;
           height: 2px;
           background: #616161;
-          margin-top: 140px;
-          position: absolute;
-        }
-        &_h3 {
-          font-size: 40px;
-          position: relative;
-          left: 400px;
-          top: 75px;
-        }
-        &_p {
-          font-size: 25px;
-          display: block;
-          position: relative;
-          left: 400px;
-          top: 75px;
         }
         &_number {
-          font-family: 'Montserrat', sans-serif;
-          font-weight: 900;
           font-size: 30px;
-          position: relative;
-          left: 234px;
-          top: 121px;
-
+          font-weight: bold;
+          font-family: 'Montserrat', sans-serif;
+          top: 100px;
+          left: 225px;
+        }
+        &_h3 {
+          font-size: 50px;
+          top: 95px;
+          left: 315px;
+        }
+        &_p {
+          top: 150px;
+          left: 315px;
+          font-size: 25px;
+          font-family: 'Glacial Indifference', sans-serif;
         }
       }
+
       &__view {
-        background: url("../img/right-arrow.png") no-repeat center top;
+        background: url("../img/right-arrow.png") top center no-repeat;
         -webkit-background-size: contain;
         background-size: contain;
-        display: block;
-        z-index: 5;
-        width: 140px;
-        height: 80px;
-        cursor: pointer;
-        font-size: 20px;
-        padding-top: 35px;
-        position: absolute;
-        right: 148px;
-        top: 118px;
+        padding-top: 40px;
+        right: 190px;
+        top: 100px;
+      }
+      &:hover {
+        background: @blue;
+
+        .projects-item {
+
+          &__title {
+            &_h3, &_p, &_number {
+              color: @vanilla;
+            }
+            &_h3, &_p {
+              z-index: 1;
+              margin-left: 80px;
+            }
+            &_line {
+              width: 360px;
+              height: 2px;
+              background: #A8E7F2;
+            }
+            &_number {
+              font-size: 100px;
+              position: absolute;
+              top: 60px;
+              left: 420px;
+              font-weight: bolder;
+              z-index: 0;
+              opacity: .2;
+            }
+          }
+
+          &__view {
+            padding: 15px 20px 5px 15px;
+            background-color: @chocolate;
+            background-image: url('../img/border-portfolio-viewProject.png');
+            -webkit-background-size: 365px 60px;
+            background-size: 305px 60px;
+            background-position: center center;
+            width: 380px;
+            height: 110px;
+            color: @vanilla;
+            right: 0;
+            top: 70px;
+            line-height: 95px;
+            text-align: left;
+            text-indent: 50px
+          }
+        }
+
       }
     }
   }
