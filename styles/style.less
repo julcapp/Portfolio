@@ -1,0 +1,441 @@
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('../fonts/GlacialIndifference-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('../fonts/GlacialIndifference-Bold.otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('../fonts/GlacialIndifference-Italic.otf');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'MoolBoran';
+  src: url('../fonts/Moolboran.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@chocolate: #1a1a1a;
+@vanilla: #F7F7F7;
+@transition-duration: 0.4s;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #F7F7F7;
+  z-index: -2;
+  font-family: 'Moolboran', sans-serif;
+}
+
+main {
+  width: 1500px;
+  margin: 0 auto;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+a {
+  text-decoration: none;
+  color: @chocolate;
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  &:hover {
+    text-decoration: none;
+  }
+
+}
+
+.relative {
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: @chocolate;
+  font-family: 'Moolboran', sans-serif;
+}
+
+h2 {
+  font-size: 112px;
+  font-weight: 100;
+}
+
+h3 {
+  font-size: 72px;
+  font-weight: 100;
+}
+
+p {
+  font-family: 'Glacial Indifference';
+  font-size: 20px;
+  font-weight: 100;
+  color: @chocolate;
+}
+
+ol {
+  counter-reset: item
+}
+
+.button-first {
+  border: 2px solid @chocolate;
+  height: 56px;
+  width: 220px;
+  -webkit-transition: all @transition-duration;
+  -moz-transition: all @transition-duration;
+  -ms-transition: all @transition-duration;
+  -o-transition: all @transition-duration;
+  transition: all @transition-duration;
+  &:hover {
+    background: @chocolate;
+    color: @vanilla;
+  }
+}
+
+.body-lines {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+  &__item {
+    width: 1px;
+    height: 100%;
+    background: #DEDEDE;
+    opacity: .35;
+    &-left {
+      margin-right: 500px;
+    }
+    &-right {
+      margin-left: 500px;
+    }
+  }
+}
+
+.header {
+  padding-top: 30px;
+  a {
+    color: @vanilla;
+    font-size: 40px;
+  }
+
+  .nortimg {
+    background: url("../img/nortimg.svg") no-repeat center center;
+    width: 271px;
+    height: 80px;
+    cursor: pointer;
+    //position: fixed;
+    -webkit-transition: all @transition-duration;
+    -moz-transition: all @transition-duration;
+    -ms-transition: all @transition-duration;
+    -o-transition: all @transition-duration;
+    transition: all @transition-duration;
+    &:hover {
+      background: url("../img/nortimg-colored.svg") no-repeat center center;
+    }
+  }
+
+  #menuToggle {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+
+  }
+
+  #menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+  }
+
+  /*
+   * Just a quick hamburger
+   */
+  #menuToggle span {
+    display: block;
+    width: 45px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: @chocolate;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    opacity 0.55s ease;
+
+  }
+
+  #menuToggle-middle {
+    width: 35px !important;
+    left: 10px;
+  }
+
+  #menuToggle span:first-child {
+    transform-origin: 0% 0%;
+
+  }
+
+  #menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+
+  /*
+   * Transform all the slices of hamburger
+   * into a crossmark.
+   */
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: @vanilla;
+  }
+
+  /*
+   * But let's hide the middle one.
+   */
+  #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  /*
+   * Ohyeah and the last one should go the other direction
+   */
+  #menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: translateY(7px) rotate(-45deg);
+
+  }
+
+  /*
+   * Make this absolute positioned
+   * at the top left of the screen
+   */
+  #menu {
+    position: absolute;
+    width: 100vw;
+    height: 110vh;
+    margin: -100px 0 0 -200px;
+    padding: 125px 0 50px 50px;
+    background: #30302D;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0);
+    opacity: 1;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  }
+
+  #menu li {
+    padding: 10px 0;
+    font-size: 22px;
+  }
+
+  /*
+   * And let's slide it in from the left
+   */
+  #menuToggle input:checked ~ ul {
+    transform: none;
+  }
+}
+
+// main-section
+
+.first-section {
+  &__images {
+    position: absolute;
+    right: -120px;
+    .trident {
+      width: 1005px;
+      height: 805px;
+      position: absolute;
+      right: 100px;
+      top: 0;
+    }
+    .loki {
+      width: 270px;
+      height: 700px;
+      position: absolute;
+      right: 595px;
+      top: 0;
+    }
+  }
+  &__title {
+    position: relative;
+    top: 300px;
+    right: -250px;
+
+    h3 {
+
+    }
+    p {
+      margin-top: -25px;
+    }
+  }
+
+  aside {
+    .icons {
+      margin-top: 60px;
+      .icon {
+        width: 31px;
+        height: 30px;
+        -webkit-background-size: contain;
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: .7;
+        -webkit-transition: all @transition-duration;
+        -moz-transition: all @transition-duration;
+        -ms-transition: all @transition-duration;
+        -o-transition: all @transition-duration;
+        transition: all @transition-duration;
+        cursor: pointer;
+        margin-bottom: 117px;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      &__github {
+        background: url("../img/icons8-github.png");
+      }
+      &__mail {
+        background: url("../img/icons8-email-96.png");
+      }
+      &__vk {
+        background: url("../img/icons8-vk-circled-90.png");
+      }
+    }
+  }
+
+  .scrollDown {
+    position: relative;
+
+    a {
+      font-size: 10px;
+      font-weight: 100;
+      display: inline-block;
+      position: absolute;
+      text-decoration: none;
+      color: @chocolate;
+      transform: rotate(90deg);
+      top: -89px;
+      left: -56px;
+    }
+  }
+}
+
+.second-section {
+  padding-top: 200px;
+
+  &-title {
+    line-height: 102px;
+    position: relative;
+    width: 505px;
+    .hyphen {
+      width: 98px;
+      height: 4px;
+      background: @chocolate;
+      display: inline-block;
+      position: absolute;
+      top: 136px;
+      left: 193px;
+    }
+    p {
+      margin-top: -30px;
+    }
+  }
+  a.button-first {
+    line-height: 55px;
+    margin-top: 100px;
+    cursor: pointer;
+  }
+  .projects {
+
+    &-item {
+      height: 277px;
+      width: 100%;
+
+      li {
+        list-style-type: none;
+        &:before {
+          content: counter(item) ')';
+          counter-increment: item;
+        }
+      }
+
+
+      &__title {
+        &_line {
+          width: 210px;
+          height: 2px;
+          background: #616161;
+          margin-top: 140px;
+          position: absolute;
+        }
+        &_h3 {
+          font-size: 40px;
+          position: relative;
+          left: 400px;
+          top: 75px;
+        }
+        &_p {
+          font-size: 25px;
+          display: block;
+          position: relative;
+          left: 400px;
+          top: 75px;
+        }
+        &_number {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 900;
+          font-size: 30px;
+          position: relative;
+          left: 234px;
+          top: 121px;
+
+        }
+      }
+      &__view {
+        background: url("../img/right-arrow.png") no-repeat center top;
+        -webkit-background-size: contain;
+        background-size: contain;
+        display: block;
+        z-index: 5;
+        width: 140px;
+        height: 80px;
+        cursor: pointer;
+        font-size: 20px;
+        padding-top: 35px;
+        position: absolute;
+        right: 148px;
+        top: 118px;
+      }
+    }
+  }
+}
+
