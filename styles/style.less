@@ -29,7 +29,7 @@
 @chocolate: #1a1a1a;
 @vanilla: #F7F7F7;
 @blue: #00C4E6;
-@transition-duration: 0.4s;
+@transition-duration: 0.6s;
 
 * {
   padding: 0;
@@ -43,10 +43,9 @@ body {
 }
 
 main {
-  width: 1500px;
+  width: 100vw;
   margin: 0 auto;
-  padding-left: 70px;
-  padding-right: 70px;
+
 }
 
 a {
@@ -67,6 +66,22 @@ a {
 
 .absolute {
   position: absolute;
+}
+
+.transition {
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -ms-transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+
+.transition-linear {
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear;
+  -ms-transition: all .3s linear;
+  -o-transition: all .3s linear;
+  transition: all .3s linear;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -109,6 +124,21 @@ ol {
     color: @vanilla;
   }
 }
+.button-second {
+  border: 2px solid @vanilla;
+  height: 70px;
+  width: 273px;
+  -webkit-transition: all @transition-duration;
+  -moz-transition: all @transition-duration;
+  -ms-transition: all @transition-duration;
+  -o-transition: all @transition-duration;
+  transition: all @transition-duration;
+  line-height: 5rem;
+  &:hover {
+    background: @vanilla;
+    color: @chocolate;
+  }
+}
 
 .body-lines {
   width: 100%;
@@ -132,6 +162,8 @@ ol {
 }
 
 .header {
+  padding-left: 70px;
+  padding-right: 70px;
   padding-top: 30px;
   a {
     color: @vanilla;
@@ -273,6 +305,8 @@ ol {
 // main-section
 
 .first-section {
+  padding-left: 70px;
+  padding-right: 70px;
   &__images {
     position: absolute;
     right: -120px;
@@ -314,13 +348,13 @@ ol {
         background-size: contain;
         background-repeat: no-repeat;
         opacity: .7;
-        -webkit-transition: all @transition-duration;
-        -moz-transition: all @transition-duration;
-        -ms-transition: all @transition-duration;
-        -o-transition: all @transition-duration;
-        transition: all @transition-duration;
         cursor: pointer;
         margin-bottom: 117px;
+        -webkit-transition: all .3s ease-in;
+        -moz-transition: all .3s ease-in;
+        -ms-transition: all .3s ease-in;
+        -o-transition: all .3s ease-in;
+        transition: all .3s ease-in;
         &:hover {
           opacity: 1;
         }
@@ -382,6 +416,8 @@ ol {
   .projects {
     margin-top: 115px;
     &-item {
+      position: relative;
+      left: 0;
       padding: 120px 0 120px 0;
       cursor: pointer;
       &__title {
@@ -408,21 +444,55 @@ ol {
           font-size: 25px;
           font-family: 'Glacial Indifference', sans-serif;
         }
+        &:before {
+          position: absolute;
+          content: '';
+          width: 0%;
+          height: 100%;
+          background: @blue;
+          top: 0;
+          left: auto;
+          z-index: -1;
+          -webkit-transition: all @transition-duration ease-in-out;
+          -moz-transition: all @transition-duration ease-in-out;
+          -ms-transition: all @transition-duration ease-in-out;
+          -o-transition: all @transition-duration ease-in-out;
+          transition: all @transition-duration ease-in-out;
+        }
       }
 
       &__view {
-        background: url("../img/right-arrow.png") top center no-repeat;
-        -webkit-background-size: contain;
-        background-size: contain;
+        width: 170px;
+        background-image: url("../img/right-arrow.png");
+        background-position: top left;
+        background-repeat: no-repeat;
+        -webkit-background-size: 128px 10px;
+        background-size: 128px 10px;
+        position: absolute;
         padding-top: 40px;
         right: 190px;
         top: 100px;
+        text-align: left;
+        &_rectangleBG {
+          &:after {
+            content: '';
+            height: 111px;
+            width: 0;
+            top: 65px;
+            right: 0;
+            background: @chocolate;
+            position: absolute;
+            -webkit-transition: all @transition-duration;
+            -moz-transition: all @transition-duration;
+            -ms-transition: all @transition-duration;
+            -o-transition: all @transition-duration;
+            transition: all @transition-duration;
+          }
+        }
       }
+
       &:hover {
-        background: @blue;
-
         .projects-item {
-
           &__title {
             &_h3, &_p, &_number {
               color: @vanilla;
@@ -445,23 +515,32 @@ ol {
               z-index: 0;
               opacity: .2;
             }
+            &:before {
+              position: absolute;
+              content: '';
+              width: 100%;
+              height: 100%;
+              background-color: @blue;
+              top: 0;
+              left: 0;
+              z-index: -1;
+            }
           }
 
           &__view {
-            padding: 15px 20px 5px 15px;
-            background-color: @chocolate;
-            background-image: url('../img/border-portfolio-viewProject.png');
-            -webkit-background-size: 365px 60px;
-            background-size: 305px 60px;
-            background-position: center center;
-            width: 380px;
-            height: 110px;
             color: @vanilla;
-            right: 0;
-            top: 70px;
-            line-height: 95px;
-            text-align: left;
-            text-indent: 50px
+            background-image: url("../img/right-arrow-vanilla.png");
+            -webkit-background-size: 170px 10px;
+            background-size: 170px 10px;
+            text-indent: 20px;
+            &_rectangleBG {
+              &:after {
+                z-index: -1;
+                content: '';
+                width: 450px;
+                right: 0;
+              }
+            }
           }
         }
 
@@ -470,3 +549,28 @@ ol {
   }
 }
 
+
+.footer {
+  padding: 173px 0 128px 0;
+  background: #333333;
+
+  &-content {
+    text-align: center;
+
+    &_h2 {
+      color: @vanilla;
+    }
+    &_p {
+      color: @vanilla;
+     margin-top: -2rem;
+    }
+    &__button {
+      color: @vanilla;
+      font-size: 36px;
+      font-family: 'Moolboran', sans-serif;
+      display: block;
+      margin: 40px auto;
+    }
+  }
+
+}
