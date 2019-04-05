@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="styles/bootstrap-grid.css">
     <link rel="stylesheet" href="styles/style.less" type="text/less">
     <script src="script/less.min.js"></script>
-
     <!--FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="fonts/moolbor_0.ttf">
@@ -18,18 +17,19 @@
     <link rel="stylesheet" href="fonts/GlacialIndifference-Italic.otf">
     <title>Nortimg websites</title>
 </head>
+<div class="body-lines">
+    <div class="body-lines__item body-lines__item-left"></div>
+    <div class="body-lines__item"></div>
+    <div class="body-lines__item body-lines__item-right"></div>
+</div>
 <body>
 <main>
-    <div class="body-lines">
-        <div class="body-lines__item body-lines__item-left"></div>
-        <div class="body-lines__item"></div>
-        <div class="body-lines__item body-lines__item-right"></div>
-    </div>
+
 
 
     <header class="header relative">
         <div class="relative">
-            <div class="nortimg">
+            <div class="nortimg" onclick="slowScroll('.first-section')">
             </div>
             <div class="menu">
                 <nav role="navigation">
@@ -71,7 +71,7 @@
         <div class="relative">
             <div class="first-section__images">
                 <img src="img/logo.svg" alt="Nortimg Trident" class="trident">
-                <img src="img/loki.png" alt="Loki" class="loki">
+                <img src="img/loki.png" alt="Loki" class="loki  animated fadeInDown">
             </div>
             <div class="first-section__title">
                 <h3>Alexey Gmitron</h3>
@@ -84,7 +84,7 @@
                     <div class="icons__vk icon"></div>
                 </div>
                 <div class="scrollDown">
-                    <a href="#">SCROLL DOWN</a>
+                    <a href="javascript://0" id="scrollDownLink" onclick="slowScroll('#second-section')">SCROLL DOWN</a>
                     <img src="img/arrow.png" alt="Scroll down">
                 </div>
             </aside>
@@ -93,11 +93,11 @@
 
     <!--SECOND SECTION-->
 
-    <section class="second-section">
+    <section class="second-section" id="second-section">
         <div class="container">
             <div class="row justify-content-around">
                 <div class="second-section-title col-lg-5">
-                    <h2>Maded with <br> love</h2>
+                    <h2>Made with <br> love</h2>
                     <div class="hyphen"></div>
                     <p>THESE ARE A SELECTION OF MY RECENT WORKS</p>
                 </div>
@@ -190,6 +190,8 @@
         </div>
     </footer>
 </main>
+
+<link rel="stylesheet" href="styles/animate.css">
 <script src="script/jquery-3.3.1.min.js"></script>
 <script src="script/main.js"></script>
 </body>

@@ -26,6 +26,9 @@
   font-style: normal;
 }
 
+
+
+
 @chocolate: #1a1a1a;
 @vanilla: #F7F7F7;
 @blue: #00C4E6;
@@ -34,18 +37,33 @@
 * {
   padding: 0;
   margin: 0;
+
 }
+
+/*плавная загрузка страниц*/
+@-webkit-keyframes fade-in {   0% { opacity: 0.5; }   100% { opacity: 1; }   }
+@-moz-keyframes    fade-in {   0% { opacity: 0.5; }   100% { opacity: 1; }   }
+@-o-keyframes      fade-in {   0% { opacity: 0.5; }   100% { opacity: 1; }   }
+@keyframes         fade-in {   0% { opacity: 0.5; }   100% { opacity: 1; }   }
+
 
 body {
   background: #F7F7F7;
   z-index: -2;
   font-family: 'Moolboran', sans-serif;
+  overflow-x: hidden;
+
+  /*плавная загрузка страниц*/
+  -webkit-animation: fade-in .3s linear; /* Safari 4+ */
+  -moz-animation: fade-in .3s linear; /* Fx 5+ */
+  -o-animation: fade-in .3s linear; /* Opera 12+ */
+  animation: fade-in .3s linear; /* IE 10+, Fx 29+ */
 }
 
 main {
   width: 100vw;
   margin: 0 auto;
-
+  max-width: 3000px;
 }
 
 a {
@@ -124,6 +142,7 @@ ol {
     color: @vanilla;
   }
 }
+
 .button-second {
   border: 2px solid @vanilla;
   height: 70px;
@@ -162,13 +181,7 @@ ol {
 }
 
 .header {
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-top: 30px;
-  a {
-    color: @vanilla;
-    font-size: 40px;
-  }
+  padding: 30px 70px 0 70px;
 
   .nortimg {
     background: url("../img/nortimg.svg") no-repeat center center;
@@ -186,11 +199,13 @@ ol {
     }
   }
 
+  // BURGER MENU
+
   #menuToggle {
     display: block;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 100px;
+    top: 20px;
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;
@@ -202,8 +217,8 @@ ol {
     width: 40px;
     height: 32px;
     position: absolute;
-    top: -7px;
-    left: -5px;
+    //top: 20px;
+    //left: -5px;
     cursor: pointer;
     opacity: 0; /* hide this */
     z-index: 2; /* and place it over the hamburger */
@@ -253,6 +268,10 @@ ol {
     background: @vanilla;
   }
 
+  #menuToggle input:checked {
+
+  }
+
   /*
    * But let's hide the middle one.
    */
@@ -287,11 +306,35 @@ ol {
     transform: translate(100%, 0);
     opacity: 1;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-  }
 
-  #menu li {
-    padding: 10px 0;
-    font-size: 22px;
+    a {
+      color: @vanilla;
+      font-size: 40px;
+      line-height: 1;
+      display: inline-block;
+      cursor: pointer;
+
+      &:hover,&:focus {
+        color: #F4F4F4;
+
+        &:after {
+          width: 100%;
+        }
+      }
+      &:after {
+        display: block;
+        content: "";
+        height: 2px;
+        width: 0%;
+        background-color: #C9C9C9;
+        transition: width .3s ease-in-out;
+      }
+    }
+
+    li {
+      padding: 10px 0;
+      font-size: 22px;
+    }
   }
 
   /*
@@ -307,9 +350,11 @@ ol {
 .first-section {
   padding-left: 70px;
   padding-right: 70px;
+  height: 100vh;
   &__images {
     position: absolute;
     right: -120px;
+    top: -100px;
     .trident {
       width: 1005px;
       height: 805px;
@@ -320,14 +365,14 @@ ol {
     .loki {
       width: 270px;
       height: 700px;
-      position: absolute;
+      position: relative;
       right: 595px;
       top: 0;
     }
   }
   &__title {
     position: relative;
-    top: 300px;
+    top: 200px;
     right: -250px;
 
     h3 {
@@ -340,16 +385,16 @@ ol {
 
   aside {
     .icons {
-      margin-top: 60px;
+      margin-top: 30px;
       .icon {
-        width: 31px;
-        height: 30px;
+        width: 21px;
+        height: 25px;
         -webkit-background-size: contain;
         background-size: contain;
         background-repeat: no-repeat;
         opacity: .7;
         cursor: pointer;
-        margin-bottom: 117px;
+        margin-bottom: 40px;
         -webkit-transition: all .3s ease-in;
         -moz-transition: all .3s ease-in;
         -ms-transition: all .3s ease-in;
@@ -373,17 +418,24 @@ ol {
 
   .scrollDown {
     position: relative;
+    height: 230px;
+    width: 100px;
+    margin-top: 100px;
 
     a {
       font-size: 10px;
       font-weight: 100;
-      display: inline-block;
       position: absolute;
       text-decoration: none;
       color: @chocolate;
-      transform: rotate(90deg);
-      top: -89px;
-      left: -56px;
+      transform: rotate(90deg) translateY(22px);
+      opacity: .8;
+    }
+    img {
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+
     }
   }
 }
@@ -549,7 +601,6 @@ ol {
   }
 }
 
-
 .footer {
   padding: 173px 0 128px 0;
   background: #333333;
@@ -562,7 +613,7 @@ ol {
     }
     &_p {
       color: @vanilla;
-     margin-top: -2rem;
+      margin-top: -2rem;
     }
     &__button {
       color: @vanilla;
