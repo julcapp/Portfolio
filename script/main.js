@@ -9,7 +9,7 @@ let footer = $('.footer');
 function slowScroll(selector) {
     var offset = 0;
     $('html, body').animate({
-        scrollTop: $(selector).offset().top - offset // получили отступ сверху до нужной части страницы
+        scrollTop: $(selector).offset().top - offset - 100 // получили отступ сверху до нужной части страницы
     }, 750); // и записали в ScrollTop
     return false;
 }
@@ -32,6 +32,18 @@ document.onwheel = function() {
 
     while (scrolled <= 50) {
         firstSection.onwheel(slowScroll('#second-section'));
+    }
+}
+
+// Фиксация шапки
+
+window.onscroll = function showHeader() {
+    var header = document.getElementsByClassName('header')[0];
+
+    if (window.pageYOffset > 300) {
+        header.classList.add('header-fixed');
+    } else {
+        header.classList.remove('header-fixed');
     }
 }
 

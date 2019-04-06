@@ -47,6 +47,34 @@
 @keyframes         fade-in {   0% { opacity: 0.5; }   100% { opacity: 1; }   }
 
 
+// показ фиксированной части страницы
+
+@keyframes showHeader {
+  0% {
+    opacity: 0;
+    top: -70px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes nortimgColorized {
+  0% {
+    background: url("../img/nortimg-colored.svg");
+  }
+
+  50% {
+    background: url("../img/nortimg.svg");
+  }
+
+  100% {
+    background: url("../img/nortimg-colored.svg");
+  }
+}
+
 body {
   background: #F7F7F7;
   z-index: -2;
@@ -124,6 +152,14 @@ p {
   color: @chocolate;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+
+  &::selection {
+    background: @blue;
+    color: @vanilla;
+  }
+}
+
 ol {
   counter-reset: item
 }
@@ -183,8 +219,33 @@ ol {
 .header {
   padding: 30px 70px 0 70px;
 
+  &-fixed {
+    -webkit-animation-name: showHeader;
+    -moz-animation-name: showHeader;
+    -o-animation-name: showHeader;
+    animation-name: showHeader;
+    position: fixed;
+    width: 100%;
+    padding: 10px 40px 10px 40px;
+    background: @vanilla;
+    z-index: 2;
+    //#menuToggle {
+    //  position: absolute;
+    //  right: 100px;
+    //
+    //}
+
+    .nortimg {
+      background: url("../img/nortimg.svg") no-repeat !important;
+
+      &:hover {
+        background: url("../img/nortimg-colored.svg") no-repeat !important;
+      }
+    }
+  }
+
   .nortimg {
-    background: url("../img/nortimg.svg") no-repeat center center;
+    background: url("../img/nortimg-colored.svg") no-repeat;
     width: 271px;
     height: 80px;
     cursor: pointer;
@@ -194,8 +255,9 @@ ol {
     -ms-transition: all @transition-duration;
     -o-transition: all @transition-duration;
     transition: all @transition-duration;
+    animation: nortimgColorized 1s 2 ease-in-out;
     &:hover {
-      background: url("../img/nortimg-colored.svg") no-repeat center center;
+      background: url("../img/nortimg.svg") no-repeat;
     }
   }
 
