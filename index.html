@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="styles/bootstrap-grid.css">
     <link rel="stylesheet" href="styles/style.less" type="text/less">
+    <link rel="stylesheet" href="styles/modal.less" type="text/less">
     <script src="script/less.min.js"></script>
     <!--FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -24,7 +25,6 @@
 </div>
 <body>
 <main>
-
 
 
     <header class="header relative">
@@ -185,11 +185,34 @@
             <div class="footer-content">
                 <h2 class="footer-content_h2">Let's talk!</h2>
                 <p class="footer-content_p">I am available for freelance work.</p>
-                <a href="#" class="button-second footer-content__button">CONTACT ME</a>
+                <a class="button-second footer-content__button" id="btnContactMe">CONTACT ME</a>
             </div>
         </div>
     </footer>
 </main>
+
+
+<div class="modal-screen d-none" id="modal">
+    <h2>Get in touch!</h2>
+    <div class="modal-screen-inputs">
+        <input type="text" name="yourName" class="modal-screen-inputs__yourName" placeholder="NAME">
+        <input type="email" name="yourMail" class="modal-screen-inputs__yourMail" placeholder="EMAIL">
+        <textarea name="yourMessage" class="modal-screen__yourMessage" placeholder="YOUR MESSAGE"></textarea>
+        <div class="modal-screen-inputs__buttons">
+            <a href="#" class="modal-screen-inputs__buttons_sendMessage">SEND MESSAGE</a>
+            <span class="modal-screen-inputs__buttons_or">OR</span>
+
+            <div class="modal-screen-inputs__buttons__icons">
+                <a href="#" class="modal-screen-inputs__buttons__icons_github modal-screen-icon"></a>
+                <a href="#" class="modal-screen-inputs__buttons__icons_vk modal-screen-icon"></a>
+                <a href="#" class="modal-screen-inputs__buttons__icons_mail modal-screen-icon"></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal-shadow d-none" id="modalShadow">
+</div>
 
 <link rel="stylesheet" href="styles/animate.css">
 <script src="script/jquery-3.3.1.min.js"></script>

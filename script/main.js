@@ -47,6 +47,21 @@ window.onscroll = function showHeader() {
     }
 }
 
+// Модальное окно
+
+var modal = $('#modal');
+var modalShadow = $('#modalShadow');
+
+$('#btnContactMe').on('click', (e) => {
+    modal.removeClass('d-none');
+    modalShadow.removeClass('d-none');
+});
+
+modalShadow.on('click', (e) => {
+    modal.addClass('d-none');
+    modalShadow.addClass('d-none');
+});
+
 
 
 
