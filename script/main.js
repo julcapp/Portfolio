@@ -27,7 +27,7 @@ $('.first-section').on('mousemove', (e) => {
 });
 
 var scrolled = 0;
-document.onwheel = function() {
+document.onwheel = function () {
     var scrolled = window.pageYOffset || document.documentElement.scrollTop;
 
     while (scrolled <= 50) {
@@ -53,16 +53,51 @@ var modal = $('#modal');
 var modalShadow = $('#modalShadow');
 
 $('#btnContactMe').on('click', (e) => {
-    modal.removeClass('d-none');
-    modalShadow.removeClass('d-none');
+
+    modal.css({
+        animation: 'modalShow .3s ease',
+        display: 'block'
+    });
+    modalShadow.css({
+        animation: 'modalShow .3s ease',
+        display: 'block'
+    });
+
 });
 
 modalShadow.on('click', (e) => {
-    modal.addClass('d-none');
-    modalShadow.addClass('d-none');
+    modalShadow.css({
+        animation: 'modalOut .2s ease',
+        display: 'none'
+    });
+    modal.css({
+        animation: 'modalOut .2s ease',
+        display: 'none'
+    });
 });
 
+var mailLink = document.getElementById('mailLink');
+var clipboard = new ClipboardJS(mailLink);
 
+
+document.getElementsByClassName('icons__mail')[0].onclick = function (e) {
+    this.classList.remove('icons__mail');
+    this.classList.add('icons__mail2');
+}
+
+document.getElementsByClassName('modal-screen-inputs__buttons__icons_mail')[0].onclick = function (e) {
+    this.classList.remove('modal-screen-inputs__buttons__icons_mail');
+    this.classList.add('modal-screen-inputs__buttons__icons_mail2');
+}
+
+$(window).bind('scroll',function(e){
+    parallaxScroll();
+});
+
+function parallaxScroll() {
+    var scrolled = $(window).scrollTop();
+    $('.loki').css('top', (0 - (scrolled * .35)) + 'px');
+}
 
 
 

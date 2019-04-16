@@ -3,6 +3,45 @@
   padding: 0;
 }
 
+@keyframes modalShow {
+  0% {
+    opacity: 0;
+    display: block;
+  }
+  25% {
+    opacity: .25;
+  }
+  50% {
+    opacity: .5;
+  }
+  75% {
+    opacity: .75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes modalOut {
+  0% {
+    opacity: 1;
+    display: none;
+  }
+  25% {
+    opacity: .75;
+  }
+  50% {
+    opacity: .5;
+  }
+  75% {
+    opacity: .25;
+  }
+  100% {
+    opacity: 0;
+
+  }
+}
+
 .modal-shadow {
   height: 110vh;
   width: 100vw;
@@ -16,6 +55,8 @@
   -ms-transition: all .3s linear;
   -o-transition: all .3s linear;
   transition: all .3s linear;
+  display: none;
+
 }
 
 .modal-screen {
@@ -25,14 +66,14 @@
   margin: 5vh auto;
   z-index: 3;
   position: fixed;
-  top: 4vh;
+  top: 1vh;
   left: 4vw;
   -webkit-transition: all .3s linear;
   -moz-transition: all .3s linear;
   -ms-transition: all .3s linear;
   -o-transition: all .3s linear;
   transition: all .3s linear;
-
+  display: none;
   h2 {
     color: #f7f7f7;
     text-align: center;
@@ -57,9 +98,9 @@
       font-family: 'Moolboran', sans-serif;
       font-size: 40px;
       background: transparent;
-      border: #f7f7f7 1px solid;
+      border: #898989 1px solid;
       outline: none;
-      padding: 5px 15px;
+      padding: 10px 15px 0;
       -webkit-transition: all .2s ease-in-out;
       -moz-transition: all .2s ease-in-out;
       -ms-transition: all .2s ease-in-out;
@@ -68,11 +109,15 @@
       color: #f7f7f7;
       &:focus {
         font-size: 32px;
+        font-family: "Montserrat", sans-serif;
       }
 
       &:active {
         font-size: 40px;
         padding: 0 15px;
+      }
+      &:hover {
+        border: #f7f7f7 1px solid;
       }
     }
     &__your {
@@ -137,11 +182,35 @@
             background: url("../img/vk2.svg") no-repeat;
           }
         }
-        &_mail {
+        &_mail, &_mail2 {
           background: url("../img/at2.svg");
           &:hover {
             background: url("../img/at.svg") no-repeat;
+            cursor: pointer;
+            &::after {
+              content: attr(data-title);
+              padding: 10px;
+              background: #1f1f1f;
+              color: #f7f7f7;
+              position: relative;
+              left: 50px;
+              box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+            }
           }
+        }
+        &_mail2:hover:after {
+          content: 'Email copied!';
+          padding: 10px;
+          background: #00C4E6;
+          color: #f7f7f7;
+          position: absolute;
+          left: 200px;
+          box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+          -webkit-transition: .3s all ease;
+          -moz-transition: .3s all ease;
+          -ms-transition: .3s all ease;
+          -o-transition: .3s all ease;
+          transition: .3s all ease;
         }
       }
     }

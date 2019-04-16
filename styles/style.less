@@ -26,9 +26,6 @@
   font-style: normal;
 }
 
-
-
-
 @chocolate: #1a1a1a;
 @vanilla: #F7F7F7;
 @blue: #00C4E6;
@@ -41,11 +38,59 @@
 }
 
 /*плавная загрузка страниц*/
-@-webkit-keyframes fade-in {   0% { opacity: 0.5; }   100% { opacity: 1; }   }
-@-moz-keyframes    fade-in {   0% { opacity: 0.5; }   100% { opacity: 1; }   }
-@-o-keyframes      fade-in {   0% { opacity: 0.5; }   100% { opacity: 1; }   }
-@keyframes         fade-in {   0% { opacity: 0.5; }   100% { opacity: 1; }   }
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
+@-moz-keyframes fade-in {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fade-in {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes downArrow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .75;
+  }
+  65% {
+    opacity: .50;
+  }
+  70% {
+    opacity: .75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 // показ фиксированной части страницы
 
@@ -59,6 +104,61 @@
     opacity: 1;
     top: 0;
   }
+}
+
+@keyframes titleIn {
+  0% {
+    color: transparent;
+  }
+
+  25% {
+    color: transparent;
+  }
+  50% {
+    color: transparent;
+  }
+  100% {
+    color: @chocolate;
+  }
+}
+
+@keyframes wordsFill {
+  0% {
+    left: 0;
+    width: 0;
+  }
+  25% {
+    width: 320px;
+  }
+  75% {
+    width: 320px;
+    right: 0;
+  }
+  100% {
+    width: 0px;
+    right: 0;
+  }
+}
+
+@keyframes scrollDownBoom {
+  0% {
+    top: 0;
+  }
+  25% {
+    top: 65px;
+  }
+  50% {
+    top: 50px;
+  }
+  75% {
+    top: 65px;
+  }
+  100% {
+    top: 50px;
+  }
+  //85% {
+  //  top: 50px;
+  //}
 }
 
 @keyframes nortimgColorized {
@@ -84,6 +184,7 @@ body {
   z-index: -2;
   font-family: 'Moolboran', sans-serif;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 
   /*плавная загрузка страниц*/
   -webkit-animation: fade-in .3s linear; /* Safari 4+ */
@@ -243,7 +344,7 @@ ol {
       background: url("../img/nortimg.svg") no-repeat !important;
 
       &:hover {
-        background: url("../img/nortimg-colored.svg") no-repeat !important;
+       fill: @chocolate;
       }
     }
   }
@@ -380,7 +481,7 @@ ol {
       display: inline-block;
       cursor: pointer;
 
-      &:hover,&:focus {
+      &:hover, &:focus {
         color: #F4F4F4;
 
         &:after {
@@ -440,9 +541,25 @@ ol {
     position: relative;
     top: 200px;
     right: -250px;
-
+    width: 320px;
     h3 {
-
+      display: inline-block;
+      -webkit-animation: titleIn 2s ;
+      -o-animation: titleIn 2s ;
+      animation: titleIn 2s ;
+      &:before {
+        content: '';
+        background: @chocolate;
+        //width: 320px;
+        height: 70px;
+        display: block;
+        position: absolute;
+        z-index: 3;
+        -webkit-animation: wordsFill 2s ease;
+        -o-animation: wordsFill 2s ease;
+        animation: wordsFill 2s ease;
+        right: 0;
+      }
     }
     p {
       margin-top: -25px;
@@ -453,6 +570,7 @@ ol {
     .icons {
       margin-top: 30px;
       .icon {
+        display: block;
         width: 21px;
         height: 25px;
         -webkit-background-size: contain;
@@ -475,6 +593,33 @@ ol {
       }
       &__mail {
         background: url("../img/icons8-email-96.png");
+        &:hover::after {
+          content: attr(data-title);
+          padding: 10px;
+          background: @chocolate;
+          color: @vanilla;
+          position: relative;
+          left: 50px;
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+        }
+        &2{
+        background: url("../img/icons8-email-96.png");
+      &:hover::after {
+          content: 'Email copied!';
+          padding: 10px;
+          background: #00C4E6;
+          color: #f7f7f7;
+          position: absolute;
+          left: 50px;
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+          -webkit-transition: .3s all ease;
+          -moz-transition: .3s all ease;
+          -ms-transition: .3s all ease;
+          -o-transition: .3s all ease;
+          transition: .3s all ease;
+        }
+
+      }
       }
       &__vk {
         background: url("../img/icons8-vk-circled-90.png");
@@ -496,11 +641,17 @@ ol {
       color: @chocolate;
       transform: rotate(90deg) translateY(22px);
       opacity: .8;
+      top: 50px;
+      -webkit-animation: scrollDownBoom 1.5s ease-in-out;
+      -o-animation: scrollDownBoom 1.5s ease-in-out;
+      animation: scrollDownBoom 1.5s ease-in-out;
     }
     img {
       position: absolute;
-      bottom: 0;
-      left: 10px;
+      bottom: -10px;
+      left: -10px;
+      width: 40px;
+      animation: downArrow infinite 1.5s;
 
     }
   }
@@ -687,8 +838,18 @@ ol {
       font-family: 'Moolboran', sans-serif;
       display: block;
       margin: 40px auto;
+      cursor: pointer;
     }
   }
 }
+
+#myMail {
+  position: absolute;
+  color: transparent;
+  top: 0;
+  left: -200px;
+}
+
+
 
 

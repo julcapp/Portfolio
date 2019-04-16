@@ -56,9 +56,9 @@
                         -->
                         <ul id="menu">
                             <li><a href="#">Home</a></li>
-                            <li><a href="#">About me</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Get in touch</a></li>
+                            <li><a href="pages/aboutme.html">About me</a></li>
+                            <li><a href="pages/portfolio.html">Portfolio</a></li>
+                            <li><a href="pages/getintouch.html">Get in touch</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -79,13 +79,14 @@
             </div>
             <aside>
                 <div class="icons">
-                    <div class="icons__github icon"></div>
-                    <div class="icons__mail icon"></div>
-                    <div class="icons__vk icon"></div>
+                    <a class="icons__github icon" href="https://github.com/nortimg" target="_blank"></a>
+                    <a class="icons__mail icon" data-title="nortimgg@gmail.com"
+                       target="_blank" id="mailLink" data-clipboard-target="#myMail"></a>
+                    <a class="icons__vk icon" href="https://vk.com/nortimg" target="_blank"></a>
                 </div>
                 <div class="scrollDown">
                     <a href="javascript://0" id="scrollDownLink" onclick="slowScroll('#second-section')">SCROLL DOWN</a>
-                    <img src="img/arrow.png" alt="Scroll down">
+                    <img src="img/downarrow3.svg" alt="Scroll down">
                 </div>
             </aside>
         </div>
@@ -192,29 +193,39 @@
 </main>
 
 
-<div class="modal-screen d-none" id="modal">
+<div class="modal-screen" id="modal">
     <h2>Get in touch!</h2>
     <div class="modal-screen-inputs">
-        <input type="text" name="yourName" class="modal-screen-inputs__yourName" placeholder="NAME">
-        <input type="email" name="yourMail" class="modal-screen-inputs__yourMail" placeholder="EMAIL">
-        <textarea name="yourMessage" class="modal-screen__yourMessage" placeholder="YOUR MESSAGE"></textarea>
+        <input type="text" name="yourName" class="modal-screen-inputs__yourName" placeholder="NAME"
+               onfocus="this.placeholder = ''" onblur="this.placeholder = 'NAME'">
+        <input type="email" name="yourMail" class="modal-screen-inputs__yourMail" placeholder="EMAIL"
+               onfocus="this.placeholder = ''" onblur="this.placeholder = 'EMAIL'">
+        <textarea name="yourMessage" class="modal-screen__yourMessage" placeholder="YOUR MESSAGE"
+                  onfocus="this.placeholder = ''" onblur="this.placeholder = 'YOUR MESSAGE'"></textarea>
         <div class="modal-screen-inputs__buttons">
             <a href="#" class="modal-screen-inputs__buttons_sendMessage">SEND MESSAGE</a>
             <span class="modal-screen-inputs__buttons_or">OR</span>
 
             <div class="modal-screen-inputs__buttons__icons">
-                <a href="#" class="modal-screen-inputs__buttons__icons_github modal-screen-icon"></a>
-                <a href="#" class="modal-screen-inputs__buttons__icons_vk modal-screen-icon"></a>
-                <a href="#" class="modal-screen-inputs__buttons__icons_mail modal-screen-icon"></a>
+                <a href="https://github.com/nortimg" target="_blank"
+                   class="modal-screen-inputs__buttons__icons_github modal-screen-icon"></a>
+                <a href="https://vk.com/nortimg" target="_blank"
+                   class="modal-screen-inputs__buttons__icons_vk modal-screen-icon"></a>
+                <a target="_blank"
+                   class="modal-screen-inputs__buttons__icons_mail modal-screen-icon"
+                   data-title="nortimgg@gmail.com" id="mailLink" data-clipboard-target="#myMail"></a>
             </div>
         </div>
 
     </div>
 </div>
-<div class="modal-shadow d-none" id="modalShadow">
+<div class="modal-shadow" id="modalShadow">
 </div>
 
+
+<p id="myMail">nortimgg@gmail.com</p>
 <link rel="stylesheet" href="styles/animate.css">
+<script src="script/clipboard.min.js"></script>
 <script src="script/jquery-3.3.1.min.js"></script>
 <script src="script/main.js"></script>
 </body>
