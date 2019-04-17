@@ -82,7 +82,7 @@ var clipboard = new ClipboardJS(mailLink);
 
 document.getElementsByClassName('icons__mail')[0].onclick = function (e) {
     this.classList.remove('icons__mail');
-    this.classList.add('icons__mail2');
+    this.classList.add('icons__mail-2');
 }
 
 document.getElementsByClassName('modal-screen-inputs__buttons__icons_mail')[0].onclick = function (e) {
