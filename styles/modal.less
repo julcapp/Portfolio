@@ -1,3 +1,5 @@
+
+
 * {
   margin: 0;
   padding: 0;
@@ -95,8 +97,8 @@
       display: block;
       margin: 15px auto 0;
       width: 100%;
-      font-family: 'Moolboran', sans-serif;
-      font-size: 40px;
+      font-family: 'El Messiri', sans-serif;
+      font-size: 30px;
       background: transparent;
       border: #898989 1px solid;
       outline: none;
@@ -108,17 +110,16 @@
       transition: all .2s ease-in-out;
       color: #f7f7f7;
       &:focus {
-        font-size: 32px;
-        font-family: "Montserrat", sans-serif;
+
       }
 
       &:active {
-        font-size: 40px;
         padding: 0 15px;
       }
       &:hover {
         border: #f7f7f7 1px solid;
       }
+
     }
     &__your {
 
@@ -194,7 +195,7 @@
               color: #f7f7f7;
               position: relative;
               left: 50px;
-              box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+              box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
             }
           }
         }
@@ -205,7 +206,7 @@
           color: #f7f7f7;
           position: absolute;
           left: 200px;
-          box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
           -webkit-transition: .3s all ease;
           -moz-transition: .3s all ease;
           -ms-transition: .3s all ease;
@@ -214,6 +215,10 @@
         }
       }
     }
+  }
+
+  textarea {
+    font-size: 20px;
   }
 
   &-icon {
@@ -228,4 +233,31 @@
     -o-transition: all .2s ease;
     transition: all .2s ease;
   }
+}
+
+::-webkit-input-placeholder {
+  color: #747474;
+  font-family: 'Moolboran', sans-serif;
+  font-size: 40px;
+}
+
+::-moz-placeholder {
+  color: #747474;
+  font-family: 'Moolboran', sans-serif;
+  font-size: 40px;
+}
+
+/* Firefox 19+ */
+:-moz-placeholder {
+  color: #747474;
+  font-family: 'Moolboran', sans-serif;
+  font-size: 40px;
+}
+
+/* Firefox 18- */
+:-ms-input-placeholder {
+  color: #747474;
+  font-family: 'Moolboran', sans-serif;
+  font-size: 40px;
+
 }

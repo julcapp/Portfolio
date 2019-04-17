@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=El+Messiri:400,500,600,700&subset=cyrillic');
+
 @font-face {
   font-family: 'Glacial Indifference';
   src: url('../fonts/GlacialIndifference-Regular.otf');
@@ -122,16 +124,25 @@
   }
 }
 
+@keyframes hyphenIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes wordsFill {
   0% {
     left: 0;
     width: 0;
   }
   25% {
-    width: 320px;
+    width: 100%;
   }
   75% {
-    width: 320px;
+    width: 100%;
     right: 0;
   }
   100% {
@@ -344,7 +355,7 @@ ol {
       background: url("../img/nortimg.svg") no-repeat !important;
 
       &:hover {
-       fill: @chocolate;
+        background:  url("../img/nortimg-colored.svg") !important;
       }
     }
   }
@@ -354,7 +365,6 @@ ol {
     width: 271px;
     height: 80px;
     cursor: pointer;
-    //position: fixed;
     -webkit-transition: all @transition-duration;
     -moz-transition: all @transition-duration;
     -ms-transition: all @transition-duration;
@@ -544,14 +554,13 @@ ol {
     width: 320px;
     h3 {
       display: inline-block;
-      -webkit-animation: titleIn 2s ;
-      -o-animation: titleIn 2s ;
-      animation: titleIn 2s ;
+      -webkit-animation: titleIn 3s ease;
+      -o-animation: titleIn 3s ease;
+      animation: titleIn 3s ease;
       &:before {
         content: '';
         background: @chocolate;
-        //width: 320px;
-        height: 70px;
+        height: 50px;
         display: block;
         position: absolute;
         z-index: 3;
@@ -563,6 +572,21 @@ ol {
     }
     p {
       margin-top: -25px;
+      -webkit-animation: titleIn 3s ease;
+      -o-animation: titleIn 3s ease;
+      animation: titleIn 3s ease;
+      &:before {
+        content: '';
+        background: @chocolate;
+        height: 20px;
+        display: block;
+        position: absolute;
+        z-index: 3;
+        -webkit-animation: wordsFill 2s ease;
+        -o-animation: wordsFill 2s ease;
+        animation: wordsFill 2s ease;
+        right: 0;
+      }
     }
   }
 
@@ -602,9 +626,10 @@ ol {
           left: 50px;
           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
         }
-        &2{
+        &
+        2 {
         background: url("../img/icons8-email-96.png");
-      &:hover::after {
+        &:hover::after {
           content: 'Email copied!';
           padding: 10px;
           background: #00C4E6;
@@ -664,6 +689,41 @@ ol {
     line-height: 102px;
     position: relative;
     width: 505px;
+    h2 {
+      -webkit-animation: titleIn 3s ease;
+      -o-animation: titleIn 3s ease;
+      animation: titleIn 3s ease;
+      width: 350px;
+      span.madeWithSpan {
+        &:before {
+          content: '';
+          background: @chocolate;
+          height: 60px;
+          display: block;
+          position: absolute;
+          z-index: 3;
+          -webkit-animation: wordsFill 2s ease;
+          -o-animation: wordsFill 2s ease;
+          animation: wordsFill 2s ease;
+          right: 0;
+        }
+      }
+
+      span {
+        &:before {
+          content: '';
+          background: @chocolate;
+          height: 60px;
+          display: block;
+          position: absolute;
+          z-index: 3;
+          -webkit-animation: wordsFill 2s ease;
+          -o-animation: wordsFill 2s ease;
+          animation: wordsFill 2s ease;
+          right: 0;
+        }
+      }
+    }
     .hyphen {
       width: 98px;
       height: 4px;
@@ -672,9 +732,26 @@ ol {
       position: absolute;
       top: 136px;
       left: 193px;
+      -webkit-animation: hyphenIn 4s ease;
+      -o-animation: hyphenIn 4s ease;
+      animation: hyphenIn 4s ease;
     }
     p {
       margin-top: -30px;
+      animation: titleIn 3s ease-in;
+      &:before {
+        margin-top: 30px;
+        content: '';
+        background: @chocolate;
+        height: 30px;
+        display: block;
+        position: absolute;
+        z-index: 3;
+        -webkit-animation: wordsFill 2.2s ease-out;
+        -o-animation: wordsFill 2.2s ease-out;
+        animation: wordsFill 2.2s ease-out;
+        right: 0;
+      }
     }
   }
   a.button-first {
