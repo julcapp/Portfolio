@@ -112,6 +112,24 @@ function parallaxScroll() {
     $('.loki').css('top', (0 - (scrolled * .35)) + 'px');
 }
 
+// Анимация заголовка на втором экране
+//
+
+function secondTitle() {
+    setInterval(function () {
+        if (document.documentElement.scrollTop >=700 && document.documentElement.scrollTop <= 1000) {
+            $('.second-section-title').css({
+                display: 'block',
+            });
+        }
+    }, 100);
+}
+
+secondTitle();
+
+
+
+
 
 
 
