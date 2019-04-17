@@ -9,7 +9,7 @@ let footer = $('.footer');
 function slowScroll(selector) {
     var offset = 0;
     $('html, body').animate({
-        scrollTop: $(selector).offset().top - offset - 100 // получили отступ сверху до нужной части страницы
+        scrollTop: selector.offset().top - offset - 100 // получили отступ сверху до нужной части страницы
     }, 750); // и записали в ScrollTop
     return false;
 }
@@ -26,14 +26,27 @@ $('.first-section').on('mousemove', (e) => {
     );
 });
 
-var scrolled = 0;
-document.onwheel = function () {
-    var scrolled = window.pageYOffset || document.documentElement.scrollTop;
 
-    while (scrolled <= 50) {
-        firstSection.onwheel(slowScroll('#second-section'));
+// НЕ ТРОГАТЬ УБЬЁТ!!! Я ПРЕДУПРЕЖДАЛ СУКА
+var wheel = true;
+    window.onwheel = function (e) {
+        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        if (wheel) {
+
+            if (e.deltaY > 0 && window.pageYOffset <= 100) {
+                slowScroll(secondSection);
+                wheel = false;
+            }
+            setTimeout(function () {
+                wheel = true;
+            }, 100)
+            if (e.deltaY < 0) {
+                wheel = true;
+            }
+        }
     }
-}
+
+
 
 // Фиксация шапки
 
