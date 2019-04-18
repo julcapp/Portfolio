@@ -58,6 +58,9 @@ window.onscroll = function showHeader() {
     } else {
         header.classList.remove('header-fixed');
     }
+
+
+
 }
 
 // Модальное окно

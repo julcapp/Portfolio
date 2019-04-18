@@ -345,6 +345,11 @@ ol {
     padding: 10px 40px 10px 40px;
     background: @vanilla;
     z-index: 2;
+    -webkit-transition: .3s ease all;
+    -moz-transition: .3s ease all;
+    -ms-transition: .3s ease all;
+    -o-transition: .3s ease all;
+    transition: .3s ease all;
     //#menuToggle {
     //  position: absolute;
     //  right: 100px;
@@ -810,15 +815,15 @@ ol {
 
       &__view {
         width: 170px;
-        background-image: url("../img/right-arrow.png");
+        background-image: url("../img/RIGHT2.svg");
         background-position: top left;
         background-repeat: no-repeat;
-        -webkit-background-size: 128px 10px;
-        background-size: 128px 10px;
+        -webkit-background-size: 120px 40px;
+        background-size: 120px 40px;
         position: absolute;
         padding-top: 40px;
         right: 190px;
-        top: 100px;
+        top: 90px;
         text-align: left;
         &_rectangleBG {
           &:after {
@@ -876,9 +881,8 @@ ol {
 
           &__view {
             color: @vanilla;
-            background-image: url("../img/right-arrow-vanilla.png");
-            -webkit-background-size: 170px 10px;
-            background-size: 170px 10px;
+            fill: @vanilla;
+            background-size: 170px 40px;
             text-indent: 20px;
             &_rectangleBG {
               &:after {
