@@ -1,0 +1,105 @@
+@import "vars";
+@import "keyframes";
+@import "typo";
+@import "style";
+@import "modal";
+@import "modal";
+@import "specs";
+
+@media (min-width: 320px) and (max-width: 768px) {
+  main {
+    max-width: 560px;
+  }
+
+  h3 {
+    font-size: 50px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .header {
+    padding-left: 10px;
+    padding-right: 0;
+    .nortimg {
+      width: 180px;
+      height: 54px;
+    }
+  }
+
+  .first-section {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 0;
+    &__images {
+      width: 100%;
+      margin: 0 auto;
+      .loki {
+        display: block;
+        width: 144px;
+        height: 374px;
+        margin-top: 70px;
+        right: 0;
+        top: 0;
+      }
+      .trident {
+        top: 150px;
+        width: 400px;
+        height: 320px;
+        animation: tridentTransform .6s ease-in-out;
+        -webkit-transform-origin: center center;
+        -moz-transform-origin: center center;
+        -ms-transform-origin: center center;
+        -o-transform-origin: center center;
+        transform-origin: center center;
+        -webkit-transform: rotateY(353deg);
+        -moz-transform: rotateY(353deg);
+        -ms-transform: rotateY(353deg);
+        -o-transform: rotateY(353deg);
+        transform: rotateY(353deg);
+      }
+    }
+    &__title {
+      top: 400px;
+      right: -60px;
+      margin: 0 auto;
+      width: 225px;
+      text-align: right;
+      h3 {
+
+        &:before {
+          height: 40px;
+        }
+      }
+      p {
+        &:before {
+          height: 20px;
+        }
+      }
+    }
+
+    .scrollDown {
+      a {
+        animation: scrollDownBoomInfinite 3s infinite;
+      }
+      img {
+        width: 35%;
+        left: -6px;
+      }
+    }
+
+    aside {
+      .icons {
+        margin-top: 0;
+        position: relative;
+        top: 45px;
+        .icon {
+          width: 30px;
+          height: 35px;
+        }
+      }
+    }
+
+  }
+}
