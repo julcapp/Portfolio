@@ -1,0 +1,134 @@
+@import "keyframes";
+@import "vars";
+@import "typo";
+
+* {
+  padding: 0;
+  margin: 0;
+
+}
+
+textarea {
+  resize: none;
+}
+
+body {
+  background: #F7F7F7;
+  z-index: -2;
+  font-family: 'Moolboran', sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  /*плавная загрузка страниц*/
+  -webkit-animation: fade-in .3s linear; /* Safari 4+ */
+  -moz-animation: fade-in .3s linear; /* Fx 5+ */
+  -o-animation: fade-in .3s linear; /* Opera 12+ */
+  animation: fade-in .3s linear; /* IE 10+, Fx 29+ */
+}
+
+main {
+  width: 100vw;
+  margin: 0 auto;
+  max-width: 2000px;
+}
+
+a {
+  text-decoration: none;
+  color: @chocolate;
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  &:hover {
+    text-decoration: none;
+  }
+
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.transition {
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -ms-transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+
+.transition-linear {
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear;
+  -ms-transition: all .3s linear;
+  -o-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: @chocolate;
+  font-family: 'Moolboran', sans-serif;
+}
+
+h2 {
+  font-size: 112px;
+  font-weight: 100;
+}
+
+h3 {
+  font-size: 72px;
+  font-weight: 100;
+}
+
+p {
+  font-family: 'Glacial Indifference';
+  font-size: 20px;
+  font-weight: 100;
+  color: @chocolate;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+
+  &::selection {
+    background: @blue;
+    color: @vanilla;
+  }
+}
+
+ol {
+  counter-reset: item
+}
+
+.button-first {
+  border: 2px solid @chocolate;
+  height: 56px;
+  width: 220px;
+  -webkit-transition: all @transition-duration;
+  -moz-transition: all @transition-duration;
+  -ms-transition: all @transition-duration;
+  -o-transition: all @transition-duration;
+  transition: all @transition-duration;
+  &:hover {
+    background: @chocolate;
+    color: @vanilla;
+  }
+}
+
+.button-second {
+  border: 2px solid @vanilla;
+  height: 70px;
+  width: 273px;
+  -webkit-transition: all @transition-duration;
+  -moz-transition: all @transition-duration;
+  -ms-transition: all @transition-duration;
+  -o-transition: all @transition-duration;
+  transition: all @transition-duration;
+  line-height: 5rem;
+  &:hover {
+    background: @vanilla;
+    color: @chocolate;
+  }
+}

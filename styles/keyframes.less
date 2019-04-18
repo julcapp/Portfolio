@@ -1,0 +1,149 @@
+@import "vars";
+@import "typo";
+
+/*плавная загрузка страниц*/
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fade-in {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fade-in {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes downArrow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .75;
+  }
+  65% {
+    opacity: .50;
+  }
+  70% {
+    opacity: .75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// показ фиксированной части страницы
+
+@keyframes showHeader {
+  0% {
+    opacity: 0;
+    top: -70px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes titleIn {
+  0% {
+    color: transparent;
+  }
+
+  25% {
+    color: transparent;
+  }
+  50% {
+    color: transparent;
+  }
+  100% {
+    color: @chocolate;
+  }
+}
+
+@keyframes hyphenIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes wordsFill {
+  0% {
+    left: 0;
+    width: 0;
+  }
+  25% {
+    width: 100%;
+  }
+  75% {
+    width: 100%;
+    right: 0;
+  }
+  100% {
+    width: 0px;
+    right: 0;
+  }
+}
+
+@keyframes scrollDownBoom {
+  0% {
+    top: 0;
+  }
+  25% {
+    top: 65px;
+  }
+  50% {
+    top: 50px;
+  }
+  75% {
+    top: 65px;
+  }
+  100% {
+    top: 50px;
+  }
+  //85% {
+  //  top: 50px;
+  //}
+}
+
+@keyframes nortimgColorized {
+  0% {
+    background: url("../img/nortimg-colored.svg");
+  }
+
+  50% {
+    background: url("../img/nortimg.svg");
+  }
+
+  100% {
+    background: url("../img/nortimg-colored.svg");
+  }
+}
