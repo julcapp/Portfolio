@@ -34,6 +34,17 @@
       right: 26px;
       top: 17px;
     }
+    #menu {
+      display: block;
+      //margin: -100px auto 0 500px;
+      transform-origin: 0 0;
+      transform: translate(150%, 0);
+      width: 1000px;
+
+      li {
+
+      }
+    }
   }
 
   .first-section {
@@ -155,7 +166,27 @@
           -webkit-background-size: 65px 46px;
           background-size: 65px 46px;
           font-size: 12px;
-          
+
+        }
+
+        &:hover {
+          .projects-item {
+            &__title {
+              &_line {
+                display: none;
+              }
+              &_number {
+                left: 20px;
+                top: 72px;
+              }
+            }
+            &__view {
+              display: none;
+              &_rectangleBG {
+                display: none;
+              }
+            }
+          }
         }
       }
     }

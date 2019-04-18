@@ -4,6 +4,14 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
 html {
   box-sizing: border-box;
   -ms-overflow-style: scrollbar;
@@ -68,6 +76,13 @@ html {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 
 .no-gutters {

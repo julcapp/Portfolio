@@ -3,6 +3,7 @@
 @import "keyframes";
 @import "specs";
 @import "modal";
+
 .body-lines {
   width: 100%;
   height: 100%;
@@ -26,12 +27,7 @@
 
 .header {
   padding: 30px 70px 0 70px;
-
   &-fixed {
-    -webkit-animation-name: showHeader;
-    -moz-animation-name: showHeader;
-    -o-animation-name: showHeader;
-    animation-name: showHeader;
     position: fixed;
     width: 100%;
     padding: 10px 40px 10px 40px;
@@ -52,7 +48,7 @@
       background: url("../img/nortimg.svg") no-repeat !important;
 
       &:hover {
-        background:  url("../img/nortimg-colored.svg") !important;
+        background: url("../img/nortimg-colored.svg") !important;
       }
     }
   }
@@ -324,23 +320,23 @@
           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
         }
         &-2 {
-        background: url("../img/icons8-email-96.png");
-        &:hover::after {
-          content: 'Email copied!';
-          padding: 10px;
-          background: #00C4E6;
-          color: #f7f7f7;
-          position: absolute;
-          left: 50px;
-          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-          -webkit-transition: .3s all ease;
-          -moz-transition: .3s all ease;
-          -ms-transition: .3s all ease;
-          -o-transition: .3s all ease;
-          transition: .3s all ease;
-        }
+          background: url("../img/icons8-email-96.png");
+          &:hover::after {
+            content: 'Email copied!';
+            padding: 10px;
+            background: #00C4E6;
+            color: #f7f7f7;
+            position: absolute;
+            left: 50px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+            -webkit-transition: .3s all ease;
+            -moz-transition: .3s all ease;
+            -ms-transition: .3s all ease;
+            -o-transition: .3s all ease;
+            transition: .3s all ease;
+          }
 
-      }
+        }
       }
       &__vk {
         background: url("../img/icons8-vk-circled-90.png");
@@ -388,9 +384,9 @@
     display: none;
     transition: all .1s ease-in;
     h2 {
-      -webkit-animation: titleIn 3s ease;
-      -o-animation: titleIn 3s ease;
-      animation: titleIn 3s ease;
+      -webkit-animation: titleIn 2.5s ease;
+      -o-animation: titleIn 2.5s ease;
+      animation: titleIn 2.5s ease;
       width: 350px;
       span.madeWithSpan {
         &:before {
@@ -400,9 +396,9 @@
           display: block;
           position: absolute;
           z-index: 3;
-          -webkit-animation: wordsFill 2s ease;
-          -o-animation: wordsFill 2s ease;
-          animation: wordsFill 2s ease;
+          -webkit-animation: wordsFill 1.5s ease;
+          -o-animation: wordsFill 1.5s ease;
+          animation: wordsFill 1.5s ease;
           right: 0;
         }
       }
@@ -415,9 +411,9 @@
           display: block;
           position: absolute;
           z-index: 3;
-          -webkit-animation: wordsFill 2s ease;
-          -o-animation: wordsFill 2s ease;
-          animation: wordsFill 2s ease;
+          -webkit-animation: wordsFill 1.5s ease;
+          -o-animation: wordsFill 1.5s ease;
+          animation: wordsFill 1.5s ease;
           right: 0;
         }
       }
@@ -444,9 +440,9 @@
         display: block;
         position: absolute;
         z-index: 3;
-        -webkit-animation: wordsFill 2.2s ease-out;
-        -o-animation: wordsFill 2.2s ease-out;
-        animation: wordsFill 2.2s ease-out;
+        -webkit-animation: wordsFill 1.7s ease;
+        -o-animation: wordsFill 1.7s ease;
+        animation: wordsFill 1.7s ease;
         right: 0;
       }
     }
