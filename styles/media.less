@@ -12,7 +12,11 @@
   }
 
   h3 {
-    font-size: 50px;
+    font-size: 65px;
+  }
+
+  h2 {
+    font-size: 90px;
   }
 
   p {
@@ -26,12 +30,17 @@
       width: 180px;
       height: 54px;
     }
+    #menuToggle {
+      right: 26px;
+      top: 17px;
+    }
   }
 
   .first-section {
     width: 100%;
     padding-left: 10px;
     padding-right: 0;
+    height: 90vh;
     &__images {
       width: 100%;
       margin: 0 auto;
@@ -62,9 +71,9 @@
     }
     &__title {
       top: 400px;
-      right: -60px;
+      right: -15px;
       margin: 0 auto;
-      width: 225px;
+      width: 300px;
       text-align: right;
       h3 {
 
@@ -84,8 +93,9 @@
         animation: scrollDownBoomInfinite 3s infinite;
       }
       img {
-        width: 35%;
-        left: -6px;
+        width: 25%;
+        left: -1px;
+        bottom: 35px;
       }
     }
 
@@ -100,6 +110,54 @@
         }
       }
     }
+  }
 
+  .second-section {
+    &-title {
+      width: 80%;
+      p {
+        &:before {
+          height: 50px !important;
+        }
+      }
+    }
+    .projects {
+      &-item {
+        width: 100%;
+
+        &__title {
+
+          &_line {
+            width: 60px;
+          }
+          &_number {
+            top: 108px;
+            left: 68px;
+            font-size: 19px;
+
+          }
+          &_h3 {
+            font-size: 32px;
+            left: 104px;
+            top: 106px;
+            width: 184px;
+            line-height: 1.6rem;
+          }
+          &_p {
+            font-size: 13px;
+            top: 150px;
+            left: 105px;
+          }
+        }
+        &__view {
+          right: 0;
+          width: 79px;
+          -webkit-background-size: 65px 46px;
+          background-size: 65px 46px;
+          font-size: 12px;
+          
+        }
+      }
+    }
   }
 }
