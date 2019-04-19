@@ -120,7 +120,7 @@ function parallaxScroll() {
 
 function secondTitle() {
     setInterval(function () {
-        if (document.documentElement.scrollTop >=490 && document.documentElement.scrollTop <= 1000) {
+        if (document.documentElement.scrollTop >=700 && document.documentElement.scrollTop <= 1000) {
             $('.second-section-title').css({
                 display: 'block',
             });
