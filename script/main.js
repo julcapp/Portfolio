@@ -3,6 +3,7 @@ let firstSection = $('.first-section');
 let secondSection = $('.second-section');
 let footer = $('.footer');
 
+let second_section = document.getElementsByClassName('second-section')[0];
 
 // Плавное пролистывание
 
@@ -118,9 +119,19 @@ function parallaxScroll() {
 // Анимация заголовка на втором экране
 //
 
+function getCoords(elem) { // кроме IE8-
+    var box = elem.getBoundingClientRect();
+
+    return {
+        top: box.top + pageYOffset,
+        left: box.left + pageXOffset
+    };
+
+}
+
 function secondTitle() {
     setInterval(function () {
-        if (document.documentElement.scrollTop >=700 && document.documentElement.scrollTop <= 1000) {
+        if (document.documentElement.scrollTop >= getCoords(second_section).top-100 || window.pageYOffset >= getCoords(second_section).top-100) {
             $('.second-section-title').css({
                 display: 'block',
             });

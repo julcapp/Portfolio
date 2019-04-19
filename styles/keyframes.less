@@ -1,5 +1,9 @@
-@import "vars";
+@import "style";
 @import "typo";
+@import "vars";
+@import "media";
+@import "modal";
+@import "specs";
 
 /*плавная загрузка страниц*/
 @-webkit-keyframes fade-in {
@@ -36,24 +40,6 @@
   100% {
     opacity: 1;
   }
-}
-
-@keyframes tridentTransform {
-0% {
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  -o-transform: none;
-  transform: none;
-}
-  100% {
-    -webkit-transform: rotateY(353deg);
-    -moz-transform: rotateY(353deg);
-    -ms-transform: rotateY(353deg);
-    -o-transform: rotateY(353deg);
-    transform: rotateY(353deg);
-  }
-
 }
 
 @keyframes downArrow {
@@ -152,6 +138,7 @@
   //}
 }
 
+
 @keyframes scrollDownBoomInfinite {
   0% {
     top: 50px;
@@ -173,6 +160,18 @@
   //}
 }
 
+@keyframes tridentTransform {
+  0% {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  100% {
+    transform: rotate(0,353deg,353deg);
+  }
+}
 
 @keyframes nortimgColorized {
   0% {
